@@ -27,8 +27,8 @@ def run_script():
     #process = subprocess.run(["python3", "pppwn.py", "--interface=" + chosen_int, "--fw=1100"])
 
     #Redirect stdout and stderr to the console widget
-    #sys.stdout = ConsoleRedirector(console_text)
-    #sys.stderr = ConsoleRedirector(console_text)
+    sys.stdout = ConsoleRedirector(console_text)
+    sys.stderr = ConsoleRedirector(console_text)
 
     # Capture and display the output
     for line in process.stdout:
@@ -37,8 +37,8 @@ def run_script():
         print(line, end="")
 
     # Restore stdout and stderr
-    #sys.stdout = sys.__stdout__
-    #sys.stderr = sys.__stderr__
+    sys.stdout = sys.__stdout__
+    sys.stderr = sys.__stderr__
 
 #get user name of machine to work in file path starting directory to not confuse user
 username = os.getlogin()
