@@ -21,10 +21,10 @@ def run_script():
     # take selected interface from drop down
     chosen_int = interfaces_dropdown.get()
 
-    # Run your script command
+    # Run script command
     script_path = "pppwn.py"  # Replace with your script path
-    process = subprocess.Popen(["python3", "pppwn.py", ("--interface="+ chosen_int), "--fw=1100"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-    #process = subprocess.run(["python3", "pppwn.py", "--interface=" + chosen_int, "--fw=1100"])
+    process = subprocess.Popen(["python3", "pppwn.py", "--interface="+ chosen_int], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    #process = subprocess.run(["python3", "pppwn.py", "--interface=" + chosen_int])
 
     #Redirect stdout and stderr to the console widget
     sys.stdout = ConsoleRedirector(console_text)
@@ -43,9 +43,13 @@ def run_script():
 #get user name of machine to work in file path starting directory to not confuse user
 username = os.getlogin()
 
+# ------------------------
+#   Application-GUI
+# ------------------------
+
 #Create Frame of Application and window title
 root = customtkinter.CTk()
-root.title('PPPwn GUI MacARM')
+root.title('PPPwn GUI Mac-Intel/ARM')
 
 frame=customtkinter.CTkFrame(master=root)
 frame.pack(pady=10, padx=10, fill="both", expand=True)
